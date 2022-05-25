@@ -1,14 +1,13 @@
 const apiKey = "08fe5dd7c40587be64a6aa22b9cfc117";
 const getCityName = () => document.querySelector("#cityInput");
+const setCityName = () => document.querySelector(".city-name");
 
 function get(requestUrl) {
   return fetch(requestUrl)
     .then(function (response) {
-      debugger;
       return response.json();
     })
     .catch((e) => {
-      debugger;
       console.log(e);
     });
 }
@@ -20,5 +19,8 @@ var getCityWeather = async () => {
 
   const response = await get(url);
   debugger;
-  return response;
+  const displayName = setCityName();
+  displayName.innerHTML = response.name;
+  debugger;
+  //   const displayTemp = response.main.temp
 };

@@ -15,22 +15,23 @@
             <h1>Here's What's Happening in Your Neck of the Woods</h1>
         </center>
     </header>
-    <left>
-        <main class="main-cont">
-            <div class="col col-lg-4 searchedCities">
-                <main>
-                    <div class="card-header">
-                        <h2>Search for a City</h2>
-                    </div>
-                    <p id="inputContainer">City: <input type="text" id="cityInput"></p>
-                    <button onclick="getCityWeather()">Search</button>
-                    <h3 id="cityName"></h3>
-                </main>
-    </left>
+
+    <div class="main-cont">
+        <div class="col col-lg-4 searchedCities">
+            <main>
+                <div class="card-header">
+                    <h2>Search for a City</h2>
+                </div>
+                <p id="inputContainer">City: <input type="text" id="cityInput"></p>
+                <button onclick="getCityWeather()">Search</button>
+                <h3 id="cityName"></h3>
+            </main>
+        </div>
+    </div>
 
     <div id="weather">
         <div id="iconContainer">
-            <h2 class="box-name">Sunday through Saturday</h2>
+            <h2 class="city-name"></h2>
             <div class="icons">
                 <p class="weather" id="day1"></p>
                 <div class="image"></div>

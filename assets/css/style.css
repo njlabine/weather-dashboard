@@ -16,9 +16,7 @@ header {
 
 #weather {
   position: absolute;
-  top: 60%;
-  left: 50%;
-  margin-right: -50%;
+
   height: 300px;
   width: 1300px;
   border: 8px solid grey;
