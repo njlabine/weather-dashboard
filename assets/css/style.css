@@ -1,0 +1,26 @@
+header {
+  padding: 20px;
+}
+
+.card-header {
+  color: blue;
+}
+
+.main-cont {
+  background-image: url();
+}
+
+.box-name {
+  position: relative;
+}
+
+#weather {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  margin-right: -50%;
+  height: 300px;
+  width: 1300px;
+  border: 8px solid grey;
+  border-radius: 10px;
+}
