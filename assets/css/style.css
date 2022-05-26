@@ -1,5 +1,6 @@
 header {
   padding: 20px;
+  background-color: blue;
 }
 
 .card-header {
@@ -21,4 +22,11 @@ header {
   width: 1300px;
   border: 8px solid grey;
   border-radius: 10px;
+}
+
+.forecast-card {
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  display: inline-block;
 }
