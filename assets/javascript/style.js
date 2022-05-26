@@ -3,6 +3,23 @@ const getCityName = () => document.querySelector("#cityInput");
 const setCityName = () => document.querySelector(".city-name");
 const setCityTemp = () => document.querySelector(".temp");
 const setForcast = () => document.querySelector(".forecast");
+const cityContainer = () => document.querySelector(".city-search-container");
+
+const getSearchedCities = () => {
+  const cityStorage = localStorage.getItem("cityStorage");
+  debugger;
+  const jsonCities = JSON.parse(cityStorage);
+  debugger;
+  return jsonCities;
+};
+
+const setSearchedCities = (city) => {
+  const cityStorage = getSearchedCities();
+  if (!cityStorage.includes(city)) {
+    const newCities = [city].concat(cityStorage);
+    localStorage.setItem("cityStorage", JSON.stringify(newCities));
+  }
+};
 
 function get(requestUrl) {
   return fetch(requestUrl)
@@ -61,6 +78,7 @@ const buildForecast = (forecastData) => {
 
 var getCityWeather = async () => {
   const cityName = getCityName();
+  setSearchedCities(cityName.value);
 
   const url = `https://api.openweathermap.org/data/2.5/weather?=&q=${cityName.value}&appid=${apiKey}`;
 
@@ -74,3 +92,29 @@ var getCityWeather = async () => {
   const fiveDay = await getFiveDayForecast(response);
   buildForecast(fiveDay.daily);
 };
+
+const renderCityCard = (city) => {
+  city = city
+    .toLowerCase()
+    .split(" ")
+    .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+    .join(" ");
+
+  debugger;
+  return `
+  	<div class="city-card">
+    	<label class="city-label">${city}</label>
+    </div>
+  `;
+};
+
+const init = () => {
+  const cityWrapper = cityContainer();
+  const cityStorage = getSearchedCities();
+  debugger;
+  cityStorage.map((city) => {
+    cityWrapper.innerHTML += renderCityCard(city);
+  });
+};
+
+init();
